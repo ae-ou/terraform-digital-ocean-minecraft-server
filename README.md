@@ -27,6 +27,7 @@ To be specific, it creates:
 | minecraft_server_download_path | The URL pointing to the Minecraft server image to install and run                                                                                                                                                           | Yes      | https://launcher.mojang.com/v1/objects/a412fd69db1f81db3f511c1463fd304675244077/server.jar |
 | minecraft_server_ram           | The min/max RAM to allocate to the JVM running the Minecraft server                                                                                                                                                         | Yes      | {min = "1G", max = "1G"}                                                                   |
 | droplet_ssh_keys               | List of SSH keys that can access the Droplet                                                                                                                                                                                | No       | []                                                                                         |
+| server_properties_overrides    | Overrides for the server.properties default config map in local.server_properties_defaults                                                                                                                                  | No       | {}                                                                                         |
 
 ## Example
 This can be called directly, or invoked as a module.
@@ -48,6 +49,7 @@ minecraft_server_ram = {
   max = "1G"
 }
 droplet_ssh_keys = []
+server_properties_overrides = {"hardcore" = "true"}
 ```
 
 If you're using this as a module in a larger infrastructure definition, you can do the following:
@@ -69,5 +71,6 @@ module "minecraft_digital_ocean" {
       max = "1G"
     }
     droplet_ssh_keys = []
+    server_properties_overrides = {"hardcore" = "true"}
 }
 ```

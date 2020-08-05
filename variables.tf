@@ -73,3 +73,9 @@ variable "droplet_ssh_keys" {
   type = list(string)
   default = []
 }
+
+variable "server_properties_overrides" {
+  description = "Overrides for the server.properties default config map in local.server_properties_defaults"
+  type = map(string)
+  default = {}
+}
