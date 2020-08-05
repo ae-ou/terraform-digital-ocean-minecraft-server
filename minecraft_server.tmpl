@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# INSTALL JDK
+apt-cache search openjdk
+apt-get update
+apt-get install openjdk-14-jdk -y
+
+# CREATE MINECRAFT DIR
+mkdir minecraft
+cd minecraft
+
+# DOWNLOAD MINECRAFT
+wget -O minecraft_server.jar ${MINECRAFT_SERVER_DOWNLOAD_PATH}
+
+# ACCEPT THE MINECRAFT EULA
+echo -e "eula=true" >> eula.txt
+
+# START THE SERVER
+java -Xmx${MINECRAFT_SERVER_MAX_RAM} -Xms${MINECRAFT_SERVER_MIN_RAM} -jar minecraft_server.jar nogui
