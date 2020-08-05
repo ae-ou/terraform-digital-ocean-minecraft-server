@@ -14,6 +14,7 @@ wget -O minecraft_server.jar ${MINECRAFT_SERVER_DOWNLOAD_PATH}
 
 # ACCEPT THE MINECRAFT EULA
 echo -e "eula=true" >> eula.txt
+echo -e ${SERVER_PROPERTIES} >> server.properties
 
 # START THE SERVER
 java -Xmx${MINECRAFT_SERVER_MAX_RAM} -Xms${MINECRAFT_SERVER_MIN_RAM} -jar minecraft_server.jar nogui

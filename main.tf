@@ -15,6 +15,7 @@ resource "digitalocean_droplet" "server" {
     MINECRAFT_SERVER_DOWNLOAD_PATH = var.minecraft_server_download_path,
     MINECRAFT_SERVER_MIN_RAM = var.minecraft_server_ram.min,
     MINECRAFT_SERVER_MAX_RAM = var.minecraft_server_ram.max,
+    SERVER_PROPERTIES = local.formatted_server_properties,
   })
 }
 

@@ -53,4 +53,7 @@ locals {
 
   //Override the default values with any user-provided ones
   output_server_properties = merge(local.server_properties_defaults, var.server_properties_overrides)
+
+  //Format the server properties map into a multiline string
+  formatted_server_properties = replace(jsonencode(local.output_server_properties), " ", "\n")
 }
